@@ -6,7 +6,7 @@ from src.infra.data.repository.abc import Repository
 
 
 class PostgresRepository(Repository):
-	def __init__(self, database: Database):
+	def __init__(self, database: Database) -> None:
 		if not isinstance(database, PostgresDatabase):
 			raise ValueError(f'Invalid database type. Expected PostgresDatabase, got {type(database)}')
 

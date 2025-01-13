@@ -4,7 +4,7 @@ from src.infra.data.database.abc import Database
 
 
 class PostgresDatabase(Database):
-	def __init__(self, user: str, password: str, host: str, port: int, database: str):
+	def __init__(self, user: str, password: str, host: str, port: int, database: str) -> None:
 		self.__user = user
 		self.__password = password
 		self.__host = host

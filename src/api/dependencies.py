@@ -8,7 +8,7 @@ from src.infra.data.repository.pg_repository import PostgresRepository
 from src.use_cases.get_system_status import GetSystemStatus
 
 
-def resolve_database():
+def resolve_database() -> Database:
 	return PostgresDatabase(
 		user=settings.db_user,
 		password=settings.db_password,
@@ -18,11 +18,11 @@ def resolve_database():
 	)
 
 
-def resolve_repository(database: Database = Depends(resolve_database)):
+def resolve_repository(database: Database = Depends(resolve_database)) -> Repository:
 	return PostgresRepository(database=database)
 
 
 def resolve_get_system_status_use_case(
 	repository: Repository = Depends(resolve_repository),
-):
+) -> GetSystemStatus:
 	return GetSystemStatus(repository=repository)

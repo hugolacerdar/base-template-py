@@ -5,7 +5,7 @@ from src.api import router as api_router
 
 class AppBuilder:
 	@staticmethod
-	def build_app():
+	def build_app() -> FastAPI:
 		app = FastAPI()
 
 		app.include_router(api_router)
