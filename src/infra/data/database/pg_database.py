@@ -1,4 +1,4 @@
-import asyncpg
+import asyncpg  # type: ignore
 
 from src.infra.data.database.abc import Database
 
@@ -10,11 +10,11 @@ class PostgresDatabase(Database):
 		self.__host = host
 		self.__port = port
 		self.__database = database
-		self.__pool: asyncpg.Pool | None = None
+		self.__pool: asyncpg.Pool | None = None  # type: ignore
 
 	async def get_pool(self) -> asyncpg.Pool:
 		if not self.__pool:
-			self.__pool = await asyncpg.create_pool(
+			self.__pool: asyncpg.Pool = await asyncpg.create_pool(  # type: ignore
 				user=self.__user,
 				password=self.__password,
 				host=self.__host,
