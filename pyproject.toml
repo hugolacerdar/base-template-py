@@ -56,13 +56,20 @@ lint.select = [
     # isort
     "I",
     # fastapi
-    "FAST"
+    "FAST",
+    # annotations
+    "ANN",
+    # bandit
+    "S",
 ]
 lint.ignore = ["B008"]
 lint.extend-safe-fixes = ["SIM", "I"]
 format.quote-style = "single"
 format.indent-style = "tab"
 format.docstring-code-format = true
+
+[tool.ruff.lint.per-file-ignores]
+'tests/*' = ['S101', 'S104', 'S105', 'S311', 'ANN']
 
 [build-system]
 requires      = ["poetry-core>=2.0.0,<3.0.0"]
