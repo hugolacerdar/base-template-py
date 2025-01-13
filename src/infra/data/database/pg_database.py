@@ -1,4 +1,4 @@
-import asyncpg 
+import asyncpg
 
 from src.infra.data.database.abc import Database
 

@@ -1,4 +1,5 @@
 from asyncpg import Pool
+
 from src.infra.data.database.abc import Database
 from src.infra.data.database.pg_database import PostgresDatabase
 from src.infra.data.repository.abc import Repository

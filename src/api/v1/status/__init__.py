@@ -5,4 +5,4 @@ router = APIRouter(
     
 )
 
-from src.api.v1.status.status import get_status
+from src.api.v1.status.status import get_status  # noqa: E402, F401

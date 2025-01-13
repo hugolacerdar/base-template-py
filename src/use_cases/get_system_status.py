@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from src.infra.data.repository.abc import Repository
+
 
 class GetSystemStatus:
     def __init__(self, repository: Repository):

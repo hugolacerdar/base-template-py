@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+
 from src.api import router as api_router
 
-class AppBuilder():
+
+class AppBuilder:
     @staticmethod
     def build_app():
         app = FastAPI()
