@@ -12,3 +12,6 @@ format-ruff-check:
 
 format-ruff-fix:
 	poetry run ruff format
+
+typecheck-pyright-check:
+	poetry run pyright
