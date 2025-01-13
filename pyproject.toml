@@ -20,6 +20,7 @@ pytest = "^8.3.4"
 pytest-watch = "^4.2.0"
 coverage = "^7.6.10"
 pytest-asyncio = "^0.25.2"
+ruff = "^0.9.1"
 
 [tool.poetry]
 package-mode = false
@@ -39,6 +40,26 @@ branch = true
 source = ["src"]
 omit = ["*__init__.py", "*abc.py", "*environment.py", "*app.py", "*app_builder.py", "*settings.py", "*dependencies.py"]
 
+[tool.ruff]
+lint.select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # fastapi
+    "FAST"
+]
+lint.ignore = ["B008"]
+lint.extend-safe-fixes = ["SIM", "I"]
+line-length = 140
 
 [build-system]
 requires      = ["poetry-core>=2.0.0,<3.0.0"]
