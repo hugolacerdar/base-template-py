@@ -41,6 +41,7 @@ source = ["src"]
 omit = ["*__init__.py", "*abc.py", "*environment.py", "*app.py", "*app_builder.py", "*settings.py", "*dependencies.py"]
 
 [tool.ruff]
+line-length = 140
 lint.select = [
     # pycodestyle
     "E",
@@ -59,7 +60,9 @@ lint.select = [
 ]
 lint.ignore = ["B008"]
 lint.extend-safe-fixes = ["SIM", "I"]
-line-length = 140
+format.quote-style = "single"
+format.indent-style = "tab"
+format.docstring-code-format = true
 
 [build-system]
 requires      = ["poetry-core>=2.0.0,<3.0.0"]

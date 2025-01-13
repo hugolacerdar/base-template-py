@@ -4,10 +4,10 @@ from src.api import router as api_router
 
 
 class AppBuilder:
-    @staticmethod
-    def build_app():
-        app = FastAPI()
+	@staticmethod
+	def build_app():
+		app = FastAPI()
 
-        app.include_router(api_router)
+		app.include_router(api_router)
 
-        return app
+		return app
