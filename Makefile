@@ -13,14 +13,23 @@ lint-ruff-check:
 lint-ruff-fix: 
 	poetry run ruff check --fix
 
-lint-detect-secrets-hook:
-	git diff --staged --name-only -z | xargs -0 detect-secrets-hook --baseline .secrets.baselinedetect-secrets audit .secrets.baseline
-
 format-ruff-check: 
 	poetry run ruff format --check
 	
 format-ruff-fix:
 	poetry run ruff format
+
+sec-detect-secrets-hook:
+	git diff --staged --name-only -z | xargs -0 poetry run detect-secrets-hook --baseline .secrets.baseline
+
+sec-detect-secrets-scan:
+	poetry run detect-secrets scan > .secrets.baseline
+
+sec-detect-secrets-audit:
+	poetry run detect-secrets audit .secrets.baseline
+
+sec-detect-secrets-worflow: sec-detect-secrets-scan
+	make sec-detect-secrets-audit
 
 typecheck-pyright:
 	poetry run pyright

@@ -6,9 +6,9 @@ repos:
         entry: make lint-ruff-check
         language: system
         types: [python]
-      - id: lint-detect-secrets-hook
+      - id: sec-detect-secrets-hook
         name: Lint Detect Secrets Hook
-        entry: make lint-detect-secrets-hook
+        entry: make sec-detect-secrets-hook
         language: system
         always_run: true
       - id: format-ruff-check
