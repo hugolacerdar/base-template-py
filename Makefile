@@ -22,3 +22,8 @@ format-ruff-fix:
 typecheck-pyright:
 	poetry run pyright
 
+lint-detect-secrets-hook:
+	git diff --staged --name-only -z | xargs -0 detect-secrets-hook --baselin
+e .secrets.baselinedetect-secrets audit .secrets.baseline
+	
+
