@@ -24,6 +24,7 @@ ruff = "^0.9.1"
 pyright = "^1.1.391"
 detect-secrets = "^1.5.0"
 pre-commit = "^4.0.1"
+commitizen = "^4.1.0"
 
 [tool.poetry]
 package-mode = false

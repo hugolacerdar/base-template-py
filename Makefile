@@ -34,4 +34,5 @@ sec-detect-secrets-worflow: sec-detect-secrets-scan
 typecheck-pyright:
 	poetry run pyright
 
-
+commit:
+	cz commit
