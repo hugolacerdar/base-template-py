@@ -1,5 +1,6 @@
 from asyncpg import Pool  # type: ignore
 
+from src.domain.models.system_status import DatabaseStatus
 from src.infra.data.database.abc import Database
 from src.infra.data.database.pg_database import PostgresDatabase
 from src.infra.data.repository.abc import Repository
@@ -12,15 +13,15 @@ class PostgresRepository(Repository):
 
 		self.database: PostgresDatabase = database
 
-	async def get_database_status(self) -> dict[str, int | str]:
+	async def get_database_status(self) -> DatabaseStatus:
 		pool: Pool = await self.database.get_pool()
 		async with pool.acquire() as conn:  # type: ignore
-			version: str = await conn.fetchval('SELECT version();')  # type: ignore
+			version = await conn.fetchval('SELECT version();')  # type: ignore
 			max_connections: int = await conn.fetchval('SHOW max_connections;')  # type: ignore
 			active_connections: int = await conn.fetchval('SELECT COUNT(*)::int FROM pg_stat_activity WHERE datname = current_database();')  # type: ignore
 
-		return {
-			'version': version,
-			'max_connections': max_connections,
-			'active_connections': active_connections,
-		}
+		return DatabaseStatus(
+			version=version,  # type: ignore
+			max_connections=max_connections,  # type: ignore
+			active_connections=active_connections,  # type: ignore
+		)
