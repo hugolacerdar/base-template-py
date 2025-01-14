@@ -22,6 +22,8 @@ coverage = "^7.6.10"
 pytest-asyncio = "^0.25.2"
 ruff = "^0.9.1"
 pyright = "^1.1.391"
+detect-secrets = "^1.5.0"
+pre-commit = "^4.0.1"
 
 [tool.poetry]
 package-mode = false
