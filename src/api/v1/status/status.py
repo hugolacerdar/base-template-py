@@ -9,7 +9,7 @@ from . import router
 
 
 @router.get('', response_model=StatusResponse)
-async def get_status(get_system_status_use_case: GetSystemStatus = Depends(resolve_get_system_status_use_case)):
+async def get_status(get_system_status_use_case: GetSystemStatus = Depends(resolve_get_system_status_use_case)) -> StatusResponse:
 	status: SystemStatus = await get_system_status_use_case.execute()
 
 	return StatusResponse(
