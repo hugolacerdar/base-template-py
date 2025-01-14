@@ -1,6 +1,12 @@
 dev:
 	poetry run python main.py
 
+services-up:
+	docker compose -f src/infra/compose.yaml up -d
+
+test:
+	poetry run pytest
+
 lint-ruff-check: 
 	poetry run ruff check
 
@@ -13,5 +19,6 @@ format-ruff-check:
 format-ruff-fix:
 	poetry run ruff format
 
-typecheck-pyright-check:
+typecheck-pyright:
 	poetry run pyright
+
