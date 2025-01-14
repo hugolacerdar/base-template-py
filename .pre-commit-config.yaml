@@ -37,6 +37,7 @@ repos:
     rev: v4.1.0 
     hooks:
       - id: commitizen
+        name: 📝 Commit Message Check
       - id: commitizen-branch
         stages:
           - post-commit
