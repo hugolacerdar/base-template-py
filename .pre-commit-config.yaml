@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      - id: lint-ruff-check
+        name: Lint Ruff Check
+        entry: make lint-ruff-check
+        language: system
+        types: [python]
+      - id: lint-detect-secrets-hook
+        name: Lint Detect Secrets Hook
+        entry: make lint-detect-secrets-hook
+        language: system
+        always_run: true
+      - id: format-ruff-check
+        name: Format Ruff Check
+        entry: make format-ruff-check
+        language: system
+        types: [python]
+      - id: typecheck-pyright
+        name: Typecheck Pyright
+        entry: make typecheck-pyright
+        language: system
+        types: [python]
