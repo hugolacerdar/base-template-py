@@ -38,7 +38,7 @@ jobs:
 
     - name: Run formatter checks
       run: |
-        make format-ruff-checks
+        make format-ruff-check
 
   commit-messages-check:
     runs-on: ubuntu-latest
@@ -60,4 +60,4 @@ jobs:
 
     - name: Run commit messages checks
       run: |
-        gitlint --commits "main..$(git rev-parse --abbrev-ref HEAD)"
+        poetry run gitlint --commits "main..$(git rev-parse --abbrev-ref HEAD)"
