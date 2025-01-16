@@ -3,9 +3,11 @@ dev:
 
 services-up:
 	docker compose -f src/infra/compose.yaml up -d
-
-test:
-	poetry run pytest
+services-stop:
+	docker compose -f src/infra/compose.yaml stop
+	
+test: services-up
+	npx concurrently -n fastapi,pytest --hide fastapi -k -s command-pytest "make dev" "poetry run pytest --verbose"
 
 lint-ruff-check: 
 	poetry run ruff check
