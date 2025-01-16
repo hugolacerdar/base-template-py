@@ -13,6 +13,7 @@ dependencies = [
     "asyncpg (>=0.30.0,<0.31.0)",
     "pydantic-settings (>=2.7.1,<3.0.0)",
     "python-dotenv (>=1.0.1,<2.0.0)",
+    "tenacity (>=9.0.0,<10.0.0)",
 ]
 
 [tool.poetry.group.dev.dependencies]
@@ -36,6 +37,7 @@ minversion = "6.0"
 addopts = ["-vv", "--strict-config", "--strict-markers"]
 testpaths = ["tests"]
 asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope="function"
 
 [tool.coverage.paths]
 source = ["src"]
