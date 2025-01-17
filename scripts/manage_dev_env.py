@@ -94,8 +94,6 @@ def run_dev_env_manager() -> None:
 		asyncio.run(main())
 	except KeyboardInterrupt:
 		print('\n⚡ Received KeyboardInterrupt. Initiating cleanup...')
-		# We can't call `asyncio.run(cleanup())` directly if the loop is already closed,
-		# so we create a fresh event loop here.
 		loop = asyncio.new_event_loop()
 		try:
 			loop.run_until_complete(cleanup())

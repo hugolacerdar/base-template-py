@@ -1,5 +1,5 @@
 dev:
-	poetry run python manage_dev_env.py
+	poetry run python scripts/manage_dev_env.py
 
 services-up:
 	docker compose -f src/infra/compose.yaml up -d
@@ -8,7 +8,7 @@ services-stop:
 	docker compose -f src/infra/compose.yaml stop
 
 services-wait-db:
-	python wait_for_postgres.py
+	python scripts/wait_for_postgres.py
 	
 test: services-up
 	npx concurrently -n fastapi,pytest --hide fastapi -k -s command-pytest "poetry run python main.py" "poetry run pytest --verbose"
