@@ -50,7 +50,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: "lts/hydrogen"
+          node-version: "lts/jod"
       - name: Install commitlint
         run: npm install commitlint @commitlint/{config-conventional,cli}
       - name: Run commitlint
